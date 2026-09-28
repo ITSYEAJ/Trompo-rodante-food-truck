@@ -1,8 +1,3 @@
-# Trompo Rodante
-
-**Descripción para GitHub:** Sitio web para un food truck de tacos en Guadalajara, con menú interactivo, pedidos para recoger, seguimiento de turnos, agenda de ruta y cotización de eventos.
-
-Trompo Rodante es una aplicación web para presentar la oferta de un food truck y facilitar la operación diaria desde una experiencia adaptable a móviles y escritorio. Los clientes pueden consultar el menú, preparar un pedido, revisar la ubicación y los horarios, seguir su turno y solicitar una cotización para eventos. El equipo cuenta con un panel administrativo para gestionar pedidos, menú, ruta y solicitudes.
 
 ## Funcionalidades
 

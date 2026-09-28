@@ -1,0 +1,61 @@
+{
+    "semana": [
+        {
+            "dia": 0,
+            "activo": true,
+            "lugar": "Bosque Los Colomos",
+            "direccion": "Acceso Av. Patria, Providencia, Guadalajara",
+            "inicio": "11:00",
+            "fin": "17:00"
+        },
+        {
+            "dia": 1,
+            "activo": false,
+            "lugar": "Día de descanso",
+            "direccion": "",
+            "inicio": "00:00",
+            "fin": "00:00"
+        },
+        {
+            "dia": 2,
+            "activo": true,
+            "lugar": "Plaza Chapultepec",
+            "direccion": "Av. Chapultepec Sur 120, Col. Americana, Guadalajara",
+            "inicio": "18:30",
+            "fin": "23:30"
+        },
+        {
+            "dia": 3,
+            "activo": true,
+            "lugar": "Oficinas Puerta de Hierro",
+            "direccion": "Blvd. Puerta de Hierro 4965, Zapopan",
+            "inicio": "13:00",
+            "fin": "16:30"
+        },
+        {
+            "dia": 4,
+            "activo": true,
+            "lugar": "Ciudad Universitaria",
+            "direccion": "Periférico Norte 799, Los Belenes, Zapopan",
+            "inicio": "12:30",
+            "fin": "17:00"
+        },
+        {
+            "dia": 5,
+            "activo": true,
+            "lugar": "Glorieta Chapalita",
+            "direccion": "Av. Guadalupe y Av. de las Rosas, Chapalita, Guadalajara",
+            "inicio": "18:30",
+            "fin": "23:30"
+        },
+        {
+            "dia": 6,
+            "activo": true,
+            "lugar": "Mercado nocturno Providencia",
+            "direccion": "Av. Rubén Darío 1200, Providencia, Guadalajara",
+            "inicio": "17:00",
+            "fin": "23:30"
+        }
+    ],
+    "excepciones": []
+}

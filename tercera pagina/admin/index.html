@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>Panel · Trompo Rodante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <script src="../js/tema.js"></script>
+  <script src="../js/datos.js" defer></script>
+  <script src="../js/admin.js" defer></script>
+</head>
+<body class="pagina-admin">
+
+  <div class="acceso" id="pantallaAcceso" hidden>
+    <div class="acceso__caja">
+      <p class="marca">
+        <svg class="marca__icono" viewBox="0 0 40 40" aria-hidden="true">
+          <rect x="1" y="1" width="38" height="38" rx="10" fill="#13352A"/>
+          <path d="M20 7v26" stroke="#F3EBDC" stroke-width="2" stroke-linecap="round"/>
+          <path d="M13 12h14l-2 17H15z" fill="#E2472B"/>
+          <path d="M14 17h12M14.6 22h10.8" stroke="#F3EBDC" stroke-width="1.6"/>
+          <circle cx="20" cy="9" r="2.6" fill="#F3EBDC"/>
+        </svg>
+        <span class="marca__texto">Trompo<span>Rodante</span></span>
+      </p>
+      <h1 id="accesoTitulo">Panel del equipo</h1>
+      <p id="accesoTexto">Entra para ver la fila, la ruta y las solicitudes de eventos.</p>
+      <form id="formAcceso" novalidate>
+        <label class="campo">
+          <span>Usuario</span>
+          <input type="text" name="usuario" maxlength="30" autocomplete="username" required>
+        </label>
+        <label class="campo">
+          <span>Contraseña</span>
+          <input type="password" name="clave" maxlength="200" autocomplete="current-password" required>
+        </label>
+        <label class="campo" id="campoClave2" hidden>
+          <span>Repite la contraseña</span>
+          <input type="password" name="clave2" maxlength="200" autocomplete="new-password">
+        </label>
+        <p class="form-error" id="errorAcceso" role="alert" hidden></p>
+        <button class="boton-a boton-a--principal boton-a--bloque" type="submit" id="botonAcceso">Entrar</button>
+      </form>
+      <a class="acceso__volver" href="../pagina3-food-truck/">← Volver a la página</a>
+    </div>
+  </div>
+
+  <div class="panel" id="panel" hidden>
+    <aside class="lateral">
+      <p class="marca">
+        <svg class="marca__icono" viewBox="0 0 40 40" aria-hidden="true">
+          <rect x="1" y="1" width="38" height="38" rx="10"/>
+          <path d="M20 7v26" stroke="#F3EBDC" stroke-width="2" stroke-linecap="round"/>
+          <path d="M13 12h14l-2 17H15z" fill="#E2472B"/>
+          <path d="M14 17h12M14.6 22h10.8" stroke="#F3EBDC" stroke-width="1.6"/>
+          <circle cx="20" cy="9" r="2.6" fill="#F3EBDC"/>
+        </svg>
+        <span class="marca__texto">Trompo<span>Rodante</span></span>
+      </p>
+      <nav class="lateral__nav" id="navPanel" aria-label="Secciones del panel">
+        <button type="button" data-vista="resumen" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+          <span>Resumen</span>
+        </button>
+        <button type="button" data-vista="fila">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          <span>Fila en vivo</span><span class="contador-nav" id="cFila" hidden></span>
+        </button>
+        <button type="button" data-vista="pedidos">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>
+          <span>Pedidos</span>
+        </button>
+        <button type="button" data-vista="menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14c0-5 4-9 9-9s9 4 9 9"/><path d="M2 14h20l-2 5H4z"/></svg>
+          <span>Menú</span>
+        </button>
+        <button type="button" data-vista="inventario">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>
+          <span>Inventario</span><span class="contador-nav" id="cInventario" hidden></span>
+        </button>
+        <button type="button" data-vista="ruta">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/></svg>
+          <span>Ruta</span>
+        </button>
+        <button type="button" data-vista="eventos">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <span>Eventos</span><span class="contador-nav" id="cEventos" hidden></span>
+        </button>
+        <button type="button" data-vista="automatizaciones">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+          <span>Automatizaciones</span>
+        </button>
+      </nav>
+      <div class="lateral__pie">
+        <button type="button" class="cambiar-tema" id="cambiarTema" aria-pressed="false" aria-label="Activar modo oscuro">
+          <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+          <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <span id="cambiarTemaTexto">Modo oscuro</span>
+        </button>
+        <a href="../pagina3-food-truck/" target="_blank" rel="noopener" aria-label="Ver la página pública">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg>
+          <span>Ver la página</span>
+        </a>
+        <button type="button" id="salir" aria-label="Cerrar sesión">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"/></svg>
+          <span>Cerrar sesión</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="principal">
+
+      <section class="vista" id="vista-resumen" aria-labelledby="tResumen">
+        <div class="principal__cab">
+          <div>
+            <h1 id="tResumen">Resumen</h1>
+            <p id="fechaHoy"></p>
+          </div>
+          <div class="principal__acciones">
+            <button class="boton-a" type="button" data-ir="fila">Abrir la fila</button>
+          </div>
+        </div>
+        <div class="estado-hoy" id="resumenHoy"></div>
+        <dl class="tarjetas" id="kpis"></dl>
+        <div class="rejilla">
+          <div class="caja">
+            <div class="caja__cab">
+              <div><h2>Ventas en línea · 14 días</h2><p id="serieTotal"></p></div>
+            </div>
+            <canvas class="grafico" id="grafico" width="720" height="240" role="img" aria-label="Gráfico de ventas de los últimos 14 días"></canvas>
+          </div>
+          <div class="caja">
+            <div class="caja__cab"><h2>Lo que necesita tu atención</h2></div>
+            <div id="alertas"></div>
+          </div>
+        </div>
+        <div class="rejilla rejilla--pareja">
+          <div class="caja">
+            <div class="caja__cab"><h2>Más vendidos · 7 días</h2></div>
+            <ol class="lista-simple" id="topAdmin"></ol>
+          </div>
+          <div class="caja">
+            <div class="caja__cab"><h2>Próximos eventos confirmados</h2><button class="boton-a boton-a--chico" type="button" data-ir="eventos">Ver todos</button></div>
+            <ul class="lista-simple" id="proximosEventos"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="vista" id="vista-fila" aria-labelledby="tFila" hidden>
+        <div class="principal__cab">
+          <div>
+            <h1 id="tFila">Fila en vivo</h1>
+            <p>Se actualiza sola cada 10 segundos. Los pedidos atrasados se marcan en rojo.</p>
+          </div>
+          <label class="interruptor">
+            <input type="checkbox" id="recibirPedidos">
+            <span class="interruptor__pista"></span>
+            <span>Recibir pedidos en línea</span>
+          </label>
+        </div>
+        <div class="estado-hoy" id="filaHoy"></div>
+        <div class="tablero" id="tablero">
+          <div class="columna"><div class="columna__cab">Recibidos <span id="nRecibido">0</span></div><div id="colRecibido"></div></div>
+          <div class="columna"><div class="columna__cab">En la plancha <span id="nPreparando">0</span></div><div id="colPreparando"></div></div>
+          <div class="columna"><div class="columna__cab">Listos en ventanilla <span id="nListo">0</span></div><div id="colListo"></div></div>
+        </div>
+        <p class="vacio-a" id="filaEntregados"></p>
+      </section>
+
+      <section class="vista" id="vista-pedidos" aria-labelledby="tPedidos" hidden>
+        <div class="principal__cab">
+          <div>
+            <h1 id="tPedidos">Pedidos</h1>
+            <p id="pedidosTotal"></p>
+          </div>
+          <button class="boton-a" type="button" id="exportar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>
+            Exportar CSV
+          </button>
+        </div>
+        <form class="herramientas" id="filtroPedidos">
+          <label class="campo"><span>Desde</span><input type="date" name="desde"></label>
+          <label class="campo"><span>Hasta</span><input type="date" name="hasta"></label>
+          <label class="campo">
+            <span>Estado</span>
+            <select name="estado">
+              <option value="">Todos</option><option value="recibido">Recibido</option><option value="preparando">En la plancha</option><option value="listo">Listo</option><option value="entregado">Entregado</option><option value="cancelado">Cancelado</option>
+            </select>
+          </label>
+          <label class="campo campo--crece"><span>Buscar</span><input type="search" name="buscar" placeholder="Nombre o número de turno"></label>
+        </form>
+        <div class="tabla-caja">
+          <table class="tabla">
+            <thead><tr><th>Fecha</th><th>Turno</th><th>Cliente</th><th>Parada</th><th>Productos</th><th class="num">Total</th><th>Estado</th></tr></thead>
+            <tbody id="tablaPedidos"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="vista" id="vista-menu" aria-labelledby="tMenu" hidden>
+        <div class="principal__cab">
+          <div>
+            <h1 id="tMenu">Menú</h1>
+            <p>Si un ingrediente de la receta se acaba, el platillo aparece agotado en la página sin que hagas nada.</p>
+          </div>
+          <button class="boton-a boton-a--principal" type="button" id="nuevoPlato">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            Nuevo platillo
+          </button>
+        </div>
+        <div class="herramientas">
+          <label class="campo">
+            <span>Categoría</span>
+            <select id="filtroCategoria"><option value="">Todas</option></select>
+          </label>
+          <label class="campo campo--crece"><span>Buscar</span><input type="search" id="buscarPlato" placeholder="Nombre del platillo"></label>
+        </div>
+        <div class="tabla-caja">
+          <table class="tabla">
+            <thead><tr><th>Platillo</th><th>Categoría</th><th class="num">Precio</th><th class="num">Porciones</th><th>Disponible</th><th class="num">Acciones</th></tr></thead>
+            <tbody id="tablaPlatos"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="vista" id="vista-inventario" aria-labelledby="tInventario" hidden>
+        <div class="principal__cab">
+          <div>
+            <h1 id="tInventario">Inventario</h1>
+            <p>Cada pedido descuenta ingredientes según la receta. Cancelar un pedido los regresa.</p>
+          </div>
+        </div>
+
+        <div class="caja" id="cajaPrep">
+          <div class="caja__cab">
+            <div>
+              <h2>Preparación sugerida</h2>
+              <p id="prepTexto"></p>
+            </div>
+            <div class="prep-cab">
+              <label class="campo"><span>Para el día</span><select id="prepFecha"></select></label>
+              <button class="boton-a boton-a--principal" type="button" id="surtirPrep">Surtir lo que falta</button>
+            </div>
+          </div>
+          <div class="tabla-caja">
+            <table class="tabla">
+              <thead><tr><th>Ingrediente</th><th class="num">Promedio vendido</th><th class="num">Llevar</th><th class="num">En existencia</th><th class="num">Falta</th></tr></thead>
+              <tbody id="tablaPrep"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="caja">
+          <div class="caja__cab">
+            <div><h2>Existencias</h2><p>Escribe la cantidad y presiona Enter o sal del campo para guardar.</p></div>
+          </div>
+          <div class="tabla-caja">
+            <table class="tabla">
+              <thead><tr><th>Ingrediente</th><th class="num">Existencia</th><th class="num">Mínimo</th><th>Se usa en</th><th class="num">Acciones</th></tr></thead>
+              <tbody id="tablaInventario"></tbody>
+            </table>
+          </div>
+          <form class="herramientas" id="formIngrediente">
+            <label class="campo campo--crece"><span>Nuevo ingrediente</span><input type="text" name="nombre" maxlength="40" placeholder="Ej. Salsa macha" required></label>
+            <label class="campo"><span>Unidad</span><select name="unidad"><option value="g">gramos</option><option value="ml">mililitros</option><option value="pz">piezas</option></select></label>
+            <label class="campo"><span>Existencia</span><input type="number" name="stock" min="0" step="any" value="0"></label>
+            <label class="campo"><span>Mínimo</span><input type="number" name="minimo" min="0" step="any" value="0"></label>
+            <button class="boton-a" type="submit">Agregar</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="vista" id="vista-ruta" aria-labelledby="tRuta" hidden>
+        <div class="principal__cab">
+          <div>
+            <h1 id="tRuta">Ruta semanal</h1>
+            <p>Lo que guardes aquí aparece al momento en la página, el calendario descargable y las horas de recogida.</p>
+          </div>
+          <button class="boton-a boton-a--principal" type="button" id="guardarRuta">Guardar ruta</button>
+        </div>
+        <div class="dias-ruta" id="diasRuta"></div>
+
+        <div class="caja separado" id="cajaExcepciones">
+          <div class="caja__cab">
+            <div><h2>Cambios para un día específico</h2><p>Lluvia, un festival o un cambio de lugar solo por un día.</p></div>
+          </div>
+          <form class="campos-3" id="formExcepcion">
+            <label class="campo"><span>Fecha</span><input type="date" name="fecha" required></label>
+            <label class="campo">
+              <span>Qué pasa</span>
+              <select name="tipo"><option value="cambio">Cambiamos de lugar u horario</option><option value="cerrado">No salimos ese día</option></select>
+            </label>
+            <label class="campo"><span>Nota para clientes</span><input type="text" name="nota" maxlength="120" placeholder="Ej. Por lluvia"></label>
+            <label class="campo" data-cambio><span>Lugar</span><input type="text" name="lugar" maxlength="60"></label>
+            <label class="campo" data-cambio><span>Dirección</span><input type="text" name="direccion" maxlength="120"></label>
+            <div class="campos" data-cambio>
+              <label class="campo"><span>Llegada</span><input type="time" name="inicio" value="18:00"></label>
+              <label class="campo"><span>Salida</span><input type="time" name="fin" value="23:00"></label>
+            </div>
+            <div><button class="boton-a" type="submit">Programar cambio</button></div>
+          </form>
+          <ul class="lista-simple separado-chico" id="listaExcepciones"></ul>
+        </div>
+      </section>
+
+      <section class="vista" id="vista-eventos" aria-labelledby="tEventos" hidden>
+        <div class="principal__cab">
+          <div>
+            <h1 id="tEventos">Eventos y taquizas</h1>
+            <p>Al confirmar un evento, esa fecha se bloquea en el cotizador y la ruta pública del día se marca como privada.</p>
+          </div>
+          <div class="principal__acciones" id="filtroEventos" role="toolbar" aria-label="Filtrar eventos">
+            <button class="boton-a boton-a--chico" type="button" data-filtro="" aria-pressed="true">Todos</button>
+            <button class="boton-a boton-a--chico" type="button" data-filtro="pendiente" aria-pressed="false">Pendientes</button>
+            <button class="boton-a boton-a--chico" type="button" data-filtro="confirmado" aria-pressed="false">Confirmados</button>
+            <button class="boton-a boton-a--chico" type="button" data-filtro="rechazado" aria-pressed="false">Rechazados</button>
+          </div>
+        </div>
+        <div id="listaEventos"></div>
+      </section>
+
+      <section class="vista" id="vista-automatizaciones" aria-labelledby="tAuto" hidden>
+        <div class="principal__cab">
+          <div>
+            <h1 id="tAuto">Automatizaciones</h1>
+            <p>Reglas que trabajan solas mientras ustedes cocinan.</p>
+          </div>
+        </div>
+
+        <div class="rejilla rejilla--pareja">
+          <div class="caja">
+            <div class="caja__cab"><h2>Reglas activas</h2></div>
+            <div class="auto-lista" id="autoLista"></div>
+          </div>
+          <div class="caja">
+            <div class="caja__cab"><h2>Aviso en la página</h2></div>
+            <p class="caja__ayuda">Aparece como franja roja arriba de la página. Útil para lluvia o retrasos.</p>
+            <form id="formAviso" class="campos campos--uno separado-chico">
+              <label class="interruptor"><input type="checkbox" name="activo"><span class="interruptor__pista"></span><span>Mostrar aviso</span></label>
+              <label class="campo"><span>Texto</span><input type="text" name="texto" maxlength="140" placeholder="Hoy llegamos 30 minutos tarde por el tráfico."></label>
+              <div><button class="boton-a" type="submit">Guardar aviso</button></div>
+            </form>
+          </div>
+        </div>
+
+        <div class="caja">
+          <div class="caja__cab"><div><h2>Pedidos en línea</h2><p>Controla cuántos pedidos entran por franja y cómo se calcula la espera.</p></div></div>
+          <form id="formPedidos">
+            <div class="campos-3">
+              <label class="campo"><span>Pedidos por franja</span><input type="number" name="capacidad_franja" min="1" max="60"></label>
+              <label class="campo"><span>Minutos por franja</span><input type="number" name="minutos_franja" min="5" max="30"></label>
+              <label class="campo"><span>Anticipación mínima (min)</span><input type="number" name="anticipacion_min" min="0" max="120"></label>
+              <label class="campo"><span>Preparación base (min)</span><input type="number" name="prep_base" min="1" max="60"></label>
+              <label class="campo"><span>Minutos por pedido</span><input type="number" name="min_por_pedido" min="1" max="30"></label>
+              <label class="campo"><span>Taqueros en turno</span><input type="number" name="taqueros" min="1" max="8"></label>
+              <label class="campo"><span>Máximo de piezas por pedido</span><input type="number" name="max_piezas" min="5" max="200"></label>
+              <label class="campo"><span>Avisar «quedan pocos» desde</span><input type="number" name="umbral_pocos" min="0" max="100"></label>
+              <label class="campo"><span>Margen de preparación (%)</span><input type="number" name="margen_prep" min="0" max="100"></label>
+            </div>
+            <div class="dialogo__pie"><button class="boton-a boton-a--principal" type="submit">Guardar</button></div>
+          </form>
+        </div>
+
+        <div class="caja">
+          <div class="caja__cab"><div><h2>Promociones por día</h2><p>Se aplican solas al precio el día indicado.</p></div><button class="boton-a boton-a--chico" type="button" id="agregarPromo">Agregar promoción</button></div>
+          <form id="formPromos">
+            <div id="listaPromos"></div>
+            <div class="dialogo__pie"><button class="boton-a boton-a--principal" type="submit">Guardar promociones</button></div>
+          </form>
+        </div>
+
+        <div class="caja">
+          <div class="caja__cab"><div><h2>Cotizador de eventos</h2><p>Precios que usa el cotizador de la página.</p></div></div>
+          <form id="formEventos">
+            <div class="campos-3" id="preciosPaquetes"></div>
+            <div class="campos-3 separado-chico">
+              <label class="campo"><span>Invitados mínimo</span><input type="number" name="minimo" min="10"></label>
+              <label class="campo"><span>Invitados máximo</span><input type="number" name="maximo" min="20"></label>
+              <label class="campo"><span>Horas incluidas</span><input type="number" name="horas_base" min="1" max="8"></label>
+              <label class="campo"><span>Costo por hora extra</span><input type="number" name="hora_extra" min="0"></label>
+              <label class="campo"><span>Km sin costo</span><input type="number" name="km_incluidos" min="0"></label>
+              <label class="campo"><span>Costo por km extra</span><input type="number" name="costo_km" min="0"></label>
+              <label class="campo"><span>Anticipo (%)</span><input type="number" name="anticipo_pct" min="0" max="100"></label>
+              <label class="campo"><span>Días de anticipación</span><input type="number" name="anticipacion_dias" min="0" max="60"></label>
+            </div>
+            <div class="dialogo__pie"><button class="boton-a boton-a--principal" type="submit">Guardar</button></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="dialogo" id="dlgPlato" aria-labelledby="dlgPlatoTitulo">
+    <form id="formPlato" novalidate>
+      <div class="dialogo__cab">
+        <h2 id="dlgPlatoTitulo">Nuevo platillo</h2>
+        <button class="cerrar" type="button" data-cerrar aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <input type="hidden" name="id">
+      <div class="campos">
+        <label class="campo"><span>Nombre</span><input type="text" name="nombre" maxlength="60" required></label>
+        <label class="campo"><span>Categoría</span><select name="categoria" id="platoCategoria"></select></label>
+        <label class="campo"><span>Precio</span><input type="number" name="precio" min="5" max="2000" step="0.5" required></label>
+        <label class="campo">
+          <span>Nivel de picante</span>
+          <select name="picante"><option value="0">No pica</option><option value="1">Pica poquito</option><option value="2">Pica</option><option value="3">Pica en serio</option></select>
+        </label>
+        <label class="campo campo--ancho"><span>Descripción</span><textarea name="descripcion" rows="2" maxlength="180"></textarea></label>
+      </div>
+      <div class="foto-editor">
+        <img id="platoVista" src="" alt="Vista previa de la foto">
+        <div class="campos campos--uno">
+          <label class="campo"><span>Foto de la biblioteca</span><select name="foto" id="platoFoto"></select></label>
+          <label class="campo"><span>O sube una nueva (JPG, PNG o WEBP, máx. 3 MB)</span><input type="file" name="imagen" accept="image/jpeg,image/png,image/webp"></label>
+        </div>
+      </div>
+      <div class="marcas">
+        <label class="interruptor"><input type="checkbox" name="activo" checked><span class="interruptor__pista"></span><span>Visible en el menú</span></label>
+        <label class="interruptor"><input type="checkbox" name="favorito"><span class="interruptor__pista"></span><span>Favorito de la casa</span></label>
+        <label class="interruptor"><input type="checkbox" name="vegetariano"><span class="interruptor__pista"></span><span>Vegetariano</span></label>
+      </div>
+      <div>
+        <div class="caja__cab"><div><h2>Receta por porción</h2><p>Se descuenta del inventario con cada venta.</p></div><button class="boton-a boton-a--chico" type="button" id="agregarIngrediente">Agregar ingrediente</button></div>
+        <div class="receta" id="receta"></div>
+      </div>
+      <p class="form-error" id="errorPlato" role="alert" hidden></p>
+      <div class="dialogo__pie">
+        <button class="boton-a" type="button" data-cerrar>Cancelar</button>
+        <button class="boton-a boton-a--principal" type="submit" id="guardarPlato">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="dialogo" id="dlgConfirmar" aria-labelledby="confirmarTitulo">
+    <form method="dialog">
+      <h2 id="confirmarTitulo">¿Seguro?</h2>
+      <p id="confirmarTexto"></p>
+      <div class="dialogo__pie">
+        <button class="boton-a" value="no">Cancelar</button>
+        <button class="boton-a boton-a--peligro" value="si" id="confirmarSi">Sí, continuar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+</body>
+</html>

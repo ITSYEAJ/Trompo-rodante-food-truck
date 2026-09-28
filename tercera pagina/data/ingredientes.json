@@ -1,0 +1,198 @@
+[
+    {
+        "id": "tortilla-maiz",
+        "nombre": "Tortilla de maíz",
+        "unidad": "pz",
+        "stock": 900,
+        "minimo": 200
+    },
+    {
+        "id": "tortilla-harina",
+        "nombre": "Tortilla de harina",
+        "unidad": "pz",
+        "stock": 140,
+        "minimo": 40
+    },
+    {
+        "id": "pastor",
+        "nombre": "Carne al pastor",
+        "unidad": "g",
+        "stock": 9000,
+        "minimo": 2000
+    },
+    {
+        "id": "asada",
+        "nombre": "Arrachera / asada",
+        "unidad": "g",
+        "stock": 6000,
+        "minimo": 1500
+    },
+    {
+        "id": "birria",
+        "nombre": "Birria de res",
+        "unidad": "g",
+        "stock": 4800,
+        "minimo": 1200
+    },
+    {
+        "id": "carnitas",
+        "nombre": "Carnitas",
+        "unidad": "g",
+        "stock": 4000,
+        "minimo": 1000
+    },
+    {
+        "id": "pollo",
+        "nombre": "Pollo adobado",
+        "unidad": "g",
+        "stock": 3500,
+        "minimo": 900
+    },
+    {
+        "id": "cochinita",
+        "nombre": "Cochinita pibil",
+        "unidad": "g",
+        "stock": 2600,
+        "minimo": 800
+    },
+    {
+        "id": "suadero",
+        "nombre": "Suadero",
+        "unidad": "g",
+        "stock": 3000,
+        "minimo": 800
+    },
+    {
+        "id": "chorizo",
+        "nombre": "Chorizo",
+        "unidad": "g",
+        "stock": 2400,
+        "minimo": 600
+    },
+    {
+        "id": "hongos",
+        "nombre": "Hongos al ajillo",
+        "unidad": "g",
+        "stock": 1600,
+        "minimo": 500
+    },
+    {
+        "id": "camote",
+        "nombre": "Camote rostizado",
+        "unidad": "g",
+        "stock": 380,
+        "minimo": 400
+    },
+    {
+        "id": "queso",
+        "nombre": "Queso Oaxaca",
+        "unidad": "g",
+        "stock": 5200,
+        "minimo": 1200
+    },
+    {
+        "id": "flor-calabaza",
+        "nombre": "Flor de calabaza",
+        "unidad": "g",
+        "stock": 0,
+        "minimo": 200
+    },
+    {
+        "id": "pina",
+        "nombre": "Piña asada",
+        "unidad": "g",
+        "stock": 2200,
+        "minimo": 400
+    },
+    {
+        "id": "arroz",
+        "nombre": "Arroz rojo",
+        "unidad": "g",
+        "stock": 3000,
+        "minimo": 600
+    },
+    {
+        "id": "frijol",
+        "nombre": "Frijol refrito",
+        "unidad": "g",
+        "stock": 3200,
+        "minimo": 600
+    },
+    {
+        "id": "totopos",
+        "nombre": "Totopos",
+        "unidad": "g",
+        "stock": 3800,
+        "minimo": 800
+    },
+    {
+        "id": "elote",
+        "nombre": "Elote",
+        "unidad": "pz",
+        "stock": 36,
+        "minimo": 10
+    },
+    {
+        "id": "consome",
+        "nombre": "Consomé",
+        "unidad": "ml",
+        "stock": 8000,
+        "minimo": 2000
+    },
+    {
+        "id": "jamaica",
+        "nombre": "Agua de jamaica",
+        "unidad": "ml",
+        "stock": 12000,
+        "minimo": 3000
+    },
+    {
+        "id": "limon",
+        "nombre": "Limón",
+        "unidad": "pz",
+        "stock": 320,
+        "minimo": 60
+    },
+    {
+        "id": "agua-mineral",
+        "nombre": "Agua mineral",
+        "unidad": "ml",
+        "stock": 6000,
+        "minimo": 1500
+    },
+    {
+        "id": "pepino",
+        "nombre": "Pepino",
+        "unidad": "g",
+        "stock": 1800,
+        "minimo": 400
+    },
+    {
+        "id": "mango",
+        "nombre": "Mango",
+        "unidad": "g",
+        "stock": 2600,
+        "minimo": 600
+    },
+    {
+        "id": "churros",
+        "nombre": "Masa de churro",
+        "unidad": "pz",
+        "stock": 110,
+        "minimo": 30
+    },
+    {
+        "id": "chocolate",
+        "nombre": "Chocolate caliente",
+        "unidad": "ml",
+        "stock": 3600,
+        "minimo": 800
+    },
+    {
+        "id": "cajeta",
+        "nombre": "Cajeta",
+        "unidad": "ml",
+        "stock": 1400,
+        "minimo": 300
+    }
+]

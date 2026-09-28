@@ -1,0 +1,517 @@
+[
+    {
+        "id": "taco-pastor",
+        "nombre": "Taco al pastor",
+        "categoria": "tacos",
+        "precio": 26,
+        "descripcion": "Cerdo adobado cortado del trompo, piña asada, cebolla y cilantro.",
+        "imagen": "img/menu/taco-pastor.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": true,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "pastor": 70,
+            "pina": 10
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-asada",
+        "nombre": "Taco de asada",
+        "categoria": "tacos",
+        "precio": 30,
+        "descripcion": "Arrachera al carbón, guacamole de molcajete y cebollita cambray.",
+        "imagen": "img/menu/taco-asada.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": true,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "asada": 70
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-birria",
+        "nombre": "Taco de birria",
+        "categoria": "tacos",
+        "precio": 32,
+        "descripcion": "Res deshebrada en su jugo, queso gratinado y cebolla morada.",
+        "imagen": "img/menu/taco-birria.webp",
+        "picante": 2,
+        "vegetariano": false,
+        "favorito": true,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "birria": 70,
+            "queso": 15
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-carnitas",
+        "nombre": "Taco de carnitas",
+        "categoria": "tacos",
+        "precio": 28,
+        "descripcion": "Carnitas estilo Michoacán, salsa verde cruda y limón.",
+        "imagen": "img/menu/taco-carnitas.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "carnitas": 70
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-pollo",
+        "nombre": "Taco de pollo adobado",
+        "categoria": "tacos",
+        "precio": 25,
+        "descripcion": "Muslo marinado en achiote y chile guajillo, pico de gallo.",
+        "imagen": "img/menu/taco-pollo.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "pollo": 70
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-cochinita",
+        "nombre": "Taco de cochinita",
+        "categoria": "tacos",
+        "precio": 29,
+        "descripcion": "Cochinita pibil con cebolla encurtida y habanero aparte.",
+        "imagen": "img/menu/taco-cochinita.webp",
+        "picante": 3,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "cochinita": 70
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-campechano",
+        "nombre": "Taco campechano",
+        "categoria": "tacos",
+        "precio": 30,
+        "descripcion": "Asada y chorizo en la misma tortilla, con salsa de árbol.",
+        "imagen": "img/menu/taco-campechano.webp",
+        "picante": 2,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "asada": 40,
+            "chorizo": 30
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-suadero",
+        "nombre": "Taco de suadero",
+        "categoria": "tacos",
+        "precio": 28,
+        "descripcion": "Suadero confitado en su grasa, dorado en la plancha.",
+        "imagen": "img/menu/taco-suadero.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "suadero": 70
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-hongos",
+        "nombre": "Taco de hongos",
+        "categoria": "tacos",
+        "precio": 27,
+        "descripcion": "Hongos al ajillo con epazote y queso fresco.",
+        "imagen": "img/menu/taco-hongos.webp",
+        "picante": 1,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "hongos": 70,
+            "queso": 10
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-camote",
+        "nombre": "Taco de camote y garbanzo",
+        "categoria": "tacos",
+        "precio": 26,
+        "descripcion": "Camote rostizado, garbanzo crujiente y aguacate. Vegano.",
+        "imagen": "img/menu/taco-camote.webp",
+        "picante": 1,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "camote": 80
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "taco-chorizo",
+        "nombre": "Taco de chorizo",
+        "categoria": "tacos",
+        "precio": 25,
+        "descripcion": "Chorizo de la casa con papa dorada y salsa roja.",
+        "imagen": "img/menu/taco-chorizo.webp",
+        "picante": 2,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 1,
+            "chorizo": 60
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "gringa",
+        "nombre": "Gringa de pastor",
+        "categoria": "especiales",
+        "precio": 69,
+        "descripcion": "Tortilla de harina, queso Oaxaca derretido y pastor con piña.",
+        "imagen": "img/menu/gringa.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": true,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-harina": 2,
+            "pastor": 120,
+            "queso": 60,
+            "pina": 20
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "quesadilla-flor",
+        "nombre": "Quesadilla de flor de calabaza",
+        "categoria": "especiales",
+        "precio": 48,
+        "descripcion": "Tortilla de maíz hecha a mano, queso y flor de calabaza.",
+        "imagen": "img/menu/quesadilla-flor.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-maiz": 2,
+            "queso": 60,
+            "flor-calabaza": 40
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "burrito-trompo",
+        "nombre": "Burrito del trompo",
+        "categoria": "especiales",
+        "precio": 98,
+        "descripcion": "Pastor, arroz rojo, frijoles, queso y salsa de la casa.",
+        "imagen": "img/menu/burrito-trompo.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-harina": 1,
+            "pastor": 150,
+            "arroz": 80,
+            "frijol": 60,
+            "queso": 30
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "burrito-norteno",
+        "nombre": "Burrito norteño",
+        "categoria": "especiales",
+        "precio": 104,
+        "descripcion": "Asada, frijoles charros y queso, en tortilla de harina sobaquera.",
+        "imagen": "img/menu/burrito-norteno.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "tortilla-harina": 1,
+            "asada": 150,
+            "frijol": 80,
+            "queso": 40
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "nachos-trompo",
+        "nombre": "Nachos del trompo",
+        "categoria": "especiales",
+        "precio": 92,
+        "descripcion": "Totopos, queso fundido, pastor, crema y pico de gallo.",
+        "imagen": "img/menu/nachos-trompo.webp",
+        "picante": 1,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "totopos": 150,
+            "pastor": 100,
+            "queso": 60
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "nachos-supremos",
+        "nombre": "Nachos supremos",
+        "categoria": "especiales",
+        "precio": 108,
+        "descripcion": "Chorizo, frijoles, jalapeño, crema y mucho queso.",
+        "imagen": "img/menu/nachos-supremos.webp",
+        "picante": 2,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "totopos": 180,
+            "chorizo": 60,
+            "frijol": 60,
+            "queso": 80
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "consome",
+        "nombre": "Consomé de birria",
+        "categoria": "especiales",
+        "precio": 45,
+        "descripcion": "Caldo de birria con cebolla, cilantro y limón. Para remojar.",
+        "imagen": "img/menu/consome.webp",
+        "picante": 2,
+        "vegetariano": false,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "consome": 350,
+            "birria": 40
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "elote",
+        "nombre": "Elote asado",
+        "categoria": "especiales",
+        "precio": 42,
+        "descripcion": "Al carbón, con mayonesa, queso cotija y chile piquín.",
+        "imagen": "img/menu/elote.webp",
+        "picante": 1,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "elote": 1,
+            "queso": 20
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "totopos-queso",
+        "nombre": "Totopos con queso",
+        "categoria": "especiales",
+        "precio": 58,
+        "descripcion": "Totopos recién fritos con queso fundido y chile de árbol.",
+        "imagen": "img/menu/totopos-queso.webp",
+        "picante": 1,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "totopos": 120,
+            "queso": 70
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "agua-jamaica",
+        "nombre": "Agua de jamaica",
+        "categoria": "bebidas",
+        "precio": 30,
+        "descripcion": "Flor de jamaica infusionada, poco dulce. 500 ml.",
+        "imagen": "img/menu/agua-jamaica.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "jamaica": 500
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "limonada",
+        "nombre": "Limonada natural",
+        "categoria": "bebidas",
+        "precio": 32,
+        "descripcion": "Limón recién exprimido con hierbabuena. 500 ml.",
+        "imagen": "img/menu/limonada.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "limon": 4
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "limonada-mineral",
+        "nombre": "Limonada mineral",
+        "categoria": "bebidas",
+        "precio": 36,
+        "descripcion": "Limón, agua mineral y un toque de piloncillo. 500 ml.",
+        "imagen": "img/menu/limonada-mineral.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "limon": 4,
+            "agua-mineral": 350
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "aguas-del-dia",
+        "nombre": "Agua de mango",
+        "categoria": "bebidas",
+        "precio": 35,
+        "descripcion": "Mango de temporada licuado al momento. 500 ml.",
+        "imagen": "img/menu/aguas-del-dia.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "mango": 150
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "agua-pepino",
+        "nombre": "Agua de pepino con limón",
+        "categoria": "bebidas",
+        "precio": 33,
+        "descripcion": "Pepino, limón y chía. Refresca como ninguna. 500 ml.",
+        "imagen": "img/menu/agua-pepino.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "pepino": 120,
+            "limon": 2
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "churros-chocolate",
+        "nombre": "Churros con chocolate",
+        "categoria": "postres",
+        "precio": 58,
+        "descripcion": "Cuatro churros con azúcar y canela y chocolate caliente.",
+        "imagen": "img/menu/churros-chocolate.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": true,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "churros": 4,
+            "chocolate": 200
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "churros",
+        "nombre": "Churros clásicos",
+        "categoria": "postres",
+        "precio": 40,
+        "descripcion": "Tres churros recién fritos con azúcar y canela.",
+        "imagen": "img/menu/churros.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "churros": 3
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    },
+    {
+        "id": "churros-cajeta",
+        "nombre": "Churros rellenos de cajeta",
+        "categoria": "postres",
+        "precio": 49,
+        "descripcion": "Tres churros rellenos de cajeta de Celaya.",
+        "imagen": "img/menu/churros-cajeta.webp",
+        "picante": 0,
+        "vegetariano": true,
+        "favorito": false,
+        "activo": true,
+        "disponible": true,
+        "receta": {
+            "churros": 3,
+            "cajeta": 60
+        },
+        "creado": "2026-06-01T12:00:00-06:00"
+    }
+]

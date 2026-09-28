@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trompo Rodante · Tacos al pastor sobre ruedas en Guadalajara</title>
+  <meta name="description" content="Food truck de tacos al pastor, birria y asada en Guadalajara. Consulta dónde estamos hoy, pide para recoger sin hacer fila y cotiza tu taquiza para eventos.">
+  <meta name="theme-color" content="#E2472B">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="preload" as="image" href="../img/sitio/trompo.webp">
+  <script src="../js/datos.js" defer></script>
+  <script src="../js/pagina3.js" defer></script>
+</head>
+<body class="pagina-trompo">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera" id="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="marca marca--sello" href="#inicio" aria-label="Trompo Rodante, inicio">
+        <svg class="marca__icono" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="#F3EBDC"/>
+          <path d="M20 7v26" stroke="#13352A" stroke-width="2" stroke-linecap="round"/>
+          <path d="M13 12h14l-2 17H15z" fill="#E2472B"/>
+          <path d="M14 17h12M14.6 22h10.8" stroke="#F3EBDC" stroke-width="1.6"/>
+          <circle cx="20" cy="9" r="2.6" fill="#13352A"/>
+        </svg>
+        <span class="marca__texto">Trompo Rodante</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <ul class="nav__lista">
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#ruta">Ruta</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#turno">Mi turno</a></li>
+        </ul>
+      </nav>
+
+      <div class="cabecera__acciones">
+        <button class="bolsa-boton" id="abrirBolsa" type="button" aria-label="Ver tu pedido">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+          <span class="bolsa-boton__texto">Mi pedido</span>
+          <span class="bolsa-boton__num" id="bolsaNum" hidden>0</span>
+        </button>
+        <button class="menu-boton" id="menuBoton" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <p class="aviso-general" id="avisoGeneral" role="status" hidden></p>
+
+  <main id="contenido">
+    <section class="heroe" id="inicio" aria-labelledby="heroeTitulo">
+      <div class="papel-picado" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="contenedor">
+        <h1 class="rotulo" id="heroeTitulo">Trompo <span>Rodante</span></h1>
+
+        <div class="heroe__grid">
+          <div class="heroe__texto">
+            <p class="heroe__lema">Tacos al pastor cortados del trompo, sobre ruedas por Guadalajara.</p>
+            <p class="promo-hoy" id="promoHoy" hidden></p>
+            <div class="heroe__acciones">
+              <a class="boton boton--chile" href="#menu">Pedir y saltar la fila</a>
+              <a class="boton boton--linea" href="#ruta">¿Dónde estamos?</a>
+            </div>
+            <ol class="mini-pasos">
+              <li><strong>1</strong> Arma tu pedido</li>
+              <li><strong>2</strong> Elige la hora</li>
+              <li><strong>3</strong> Recoge con tu turno</li>
+            </ol>
+          </div>
+
+          <div class="collage" aria-hidden="true">
+            <figure class="polaroid polaroid--1">
+              <img src="../img/sitio/trompo.webp" width="1100" height="1400" alt="">
+              <figcaption>El trompo, 24 h de adobo</figcaption>
+            </figure>
+            <figure class="polaroid polaroid--2">
+              <img src="../img/menu/taco-pastor.webp" width="800" height="600" alt="">
+              <figcaption>Pastor con piña</figcaption>
+            </figure>
+            <figure class="polaroid polaroid--3">
+              <img src="../img/sitio/camion-noche.webp" width="1400" height="1000" alt="">
+              <figcaption>La ventanilla</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <article class="letrero" id="hoy" aria-live="polite">
+          <div class="letrero__cuando">
+            <span class="letrero__dia" id="hoyDia">Hoy</span>
+            <span class="letrero__estado" id="hoyEstado">Cargando…</span>
+          </div>
+          <div class="letrero__donde">
+            <h2 class="letrero__lugar" id="hoyLugar">Buscando el camión…</h2>
+            <p class="letrero__direccion" id="hoyDireccion"></p>
+          </div>
+          <dl class="letrero__datos">
+            <div><dt>Horario</dt><dd id="hoyHorario">—</dd></div>
+            <div><dt>Espera</dt><dd id="hoyEspera">—</dd></div>
+            <div><dt>Ventanilla</dt><dd id="hoyTurno">—</dd></div>
+          </dl>
+          <a class="boton boton--crema boton--chico" id="hoyMapa" href="#ruta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Cómo llegar
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="seccion seccion--carta" id="menu" aria-labelledby="menuTitulo">
+      <div class="contenedor">
+        <div class="carta">
+          <header class="carta__cab">
+            <p class="carta__sello">Hecho al momento · Precios en pesos</p>
+            <h2 class="carta__titulo" id="menuTitulo">La carta</h2>
+            <div class="carta__herramientas">
+              <div class="filtros" id="filtros" role="toolbar" aria-label="Categorías del menú"></div>
+              <label class="buscador">
+                <span class="solo-lector">Buscar en el menú</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="search" id="buscar" placeholder="Birria, vegano, churros…" autocomplete="off">
+              </label>
+            </div>
+          </header>
+
+          <div class="carta__cuerpo">
+            <aside class="vista" aria-hidden="true">
+              <figure class="vista__foto">
+                <img id="vistaFoto" src="../img/menu/taco-pastor.webp" width="800" height="600" alt="">
+                <span class="vista__precio" id="vistaPrecio">$26</span>
+              </figure>
+              <p class="vista__nombre" id="vistaNombre">Taco al pastor</p>
+              <p class="vista__desc" id="vistaDesc">Pasa el cursor por un platillo para verlo.</p>
+            </aside>
+
+            <div class="carta__lista">
+              <div id="platos" aria-live="polite"></div>
+              <p class="vacio" id="menuVacio" hidden>No encontramos nada con esa búsqueda. Prueba con otra palabra.</p>
+              <div class="ver-mas" id="verMasCaja" hidden>
+                <p class="ver-mas__cuenta" id="verMasCuenta"></p>
+                <button class="boton boton--linea ver-mas__boton" id="verMas" type="button">
+                  Ver más
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion--ruta" id="ruta" aria-labelledby="rutaTitulo">
+      <canvas class="ruta__mapa" id="mapaRuta" aria-hidden="true"></canvas>
+      <div class="contenedor ruta__grid">
+        <div class="ruta__intro">
+          <h2 class="titulo titulo--crema" id="rutaTitulo">Siempre sabes dónde encontrarnos</h2>
+          <p>El camión se mueve toda la semana. Esta lista cambia sola cuando movemos una parada, cancelamos por lluvia o atendemos un evento privado. Cada día trae su promoción.</p>
+
+          <div class="proxima" id="proxima">
+            <p class="proxima__etiqueta" id="proximaEtiqueta">Próxima parada</p>
+            <p class="proxima__lugar" id="proximaLugar">—</p>
+            <p class="proxima__cuando" id="proximaCuando"></p>
+          </div>
+
+          <button class="boton boton--crema" id="descargarIcs" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            Guardar la ruta en mi calendario
+          </button>
+        </div>
+
+        <ol class="semana" id="semana" aria-label="Paradas de los próximos siete días"></ol>
+      </div>
+    </section>
+
+    <section class="seccion seccion--historia" id="historia" aria-labelledby="historiaTitulo">
+      <div class="contenedor">
+        <div class="historia__cab">
+          <h2 class="titulo" id="historiaTitulo">Veinticuatro horas de adobo. Dos minutos en tu mano.</h2>
+          <p>Empezamos en 2019 con un camión de segunda mano y la receta de la abuela Chela. La regla no ha cambiado: la carne se marina un día entero, la tortilla se hace frente a ti y la salsa se muele en molcajete cada tarde. Compramos la carne en Los Altos de Jalisco y el maíz a una cooperativa de Tlajomulco.</p>
+        </div>
+        <ol class="proceso">
+          <li>
+            <span class="proceso__num">24 h</span>
+            <h3>Adobo</h3>
+            <p>Guajillo, achiote y especias. La carne descansa una noche completa.</p>
+          </li>
+          <li>
+            <span class="proceso__num">380 kg</span>
+            <h3>Trompo al carbón</h3>
+            <p>Armamos el trompo capa por capa cada tarde, con piña en la punta.</p>
+          </li>
+          <li>
+            <span class="proceso__num">1,200</span>
+            <h3>Tortillas a mano</h3>
+            <p>Masa de maíz nixtamalizado, prensada y al comal frente a ti.</p>
+          </li>
+          <li>
+            <span class="proceso__num">2 min</span>
+            <h3>Tu taco</h3>
+            <p>Corte, tortilla, piña, cebolla y cilantro. Seis salsas en la barra.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="seccion seccion--galeria" id="galeria" aria-labelledby="galeriaTitulo">
+      <div class="contenedor galeria__cab">
+        <h2 class="titulo" id="galeriaTitulo">La vida en la calle</h2>
+        <div class="galeria__flechas">
+          <button class="flecha" type="button" id="galeriaAnterior" aria-label="Fotos anteriores">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+          </button>
+          <button class="flecha" type="button" id="galeriaSiguiente" aria-label="Fotos siguientes">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <ul class="galeria" id="galeriaPista" tabindex="0" aria-label="Galería de fotos">
+        <li class="polaroid"><img src="../img/sitio/neon.webp" width="1200" height="900" loading="lazy" alt="Letrero de neón de tacos encendido sobre la ventanilla de noche"><p>Viernes, 22:40</p></li>
+        <li class="polaroid"><img src="../img/menu/taco-birria.webp" width="800" height="600" loading="lazy" alt="Tacos de birria con cebolla y cilantro"><p>Birria de los jueves</p></li>
+        <li class="polaroid"><img src="../img/sitio/evento-spread.webp" width="1200" height="900" loading="lazy" alt="Platos de tacos y salsas servidos en una mesa de madera"><p>Taquiza en Zapopan</p></li>
+        <li class="polaroid"><img src="../img/sitio/tacos-letras.webp" width="1200" height="900" loading="lazy" alt="Ventana con letras grandes que dicen tacos"><p>Así nos encuentras</p></li>
+        <li class="polaroid"><img src="../img/menu/elote.webp" width="800" height="600" loading="lazy" alt="Elotes asados sobre el carbón"><p>Elote al carbón</p></li>
+        <li class="polaroid"><img src="../img/sitio/camion-noche.webp" width="1400" height="1000" loading="lazy" alt="El camión iluminado de noche con la ventanilla abierta"><p>Glorieta Chapalita</p></li>
+        <li class="polaroid"><img src="../img/menu/churros-chocolate.webp" width="800" height="600" loading="lazy" alt="Churros con una taza de chocolate caliente"><p>Para cerrar la noche</p></li>
+        <li class="polaroid"><img src="../img/menu/gringa.webp" width="800" height="600" loading="lazy" alt="Gringa de pastor cortada en triángulos con salsas"><p>La gringa</p></li>
+      </ul>
+    </section>
+
+    <section class="seccion seccion--eventos" id="eventos" aria-labelledby="eventosTitulo">
+      <div class="contenedor">
+        <div class="eventos__intro">
+          <div>
+            <h2 class="titulo titulo--crema" id="eventosTitulo">Llevamos el trompo a tu fiesta</h2>
+            <p class="eventos__bajada">Bodas, oficinas, cumpleaños y festivales de 30 a 400 personas. El precio se calcula mientras escribes y te decimos al instante si la fecha está libre.</p>
+            <ul class="chips" aria-label="Tipos de evento">
+              <li>Bodas</li><li>Empresas</li><li>Cumpleaños</li><li>Escuelas</li><li>Festivales</li>
+            </ul>
+          </div>
+          <figure class="polaroid polaroid--evento">
+            <img src="../img/sitio/evento-mesa.webp" width="1200" height="900" loading="lazy" alt="Mesa de evento con tacos, nachos, arroz, guacamole y salsas sobre mantel de talavera">
+            <figcaption>180 invitados, cero filas</figcaption>
+          </figure>
+        </div>
+
+        <form class="cotizador" id="cotizador" novalidate>
+          <div class="cotizador__campos">
+            <fieldset class="grupo">
+              <legend>1. Tu evento</legend>
+              <div class="paquetes" id="paquetes" role="radiogroup" aria-label="Paquete"></div>
+              <div class="campos">
+                <label class="campo">
+                  <span>Tipo de evento</span>
+                  <select name="tipo">
+                    <option>Boda</option><option>Empresa</option><option>Cumpleaños</option><option>Escuela</option><option>Festival</option><option>Otro</option>
+                  </select>
+                </label>
+                <label class="campo">
+                  <span>Invitados</span>
+                  <input type="number" name="invitados" id="evInvitados" inputmode="numeric" min="30" max="400" value="80" required>
+                  <small class="campo__ayuda" id="evInvitadosAyuda">De 30 a 400 personas.</small>
+                </label>
+                <label class="campo">
+                  <span>Fecha</span>
+                  <input type="date" name="fecha" id="evFecha" required>
+                  <small class="campo__ayuda" id="evFechaAyuda">Con al menos 3 días de anticipación.</small>
+                </label>
+                <label class="campo">
+                  <span>Hora de inicio</span>
+                  <input type="time" name="hora" value="14:00" step="900" required>
+                </label>
+                <label class="campo">
+                  <span>Duración del servicio</span>
+                  <select name="horas" id="evHoras"></select>
+                </label>
+                <label class="campo">
+                  <span>Distancia desde Guadalajara</span>
+                  <div class="campo__sufijo"><input type="number" name="km" inputmode="numeric" min="0" max="120" value="10"><span>km</span></div>
+                  <small class="campo__ayuda" id="evKmAyuda">Los primeros 15 km no tienen costo.</small>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="grupo">
+              <legend>2. Tus datos</legend>
+              <div class="campos">
+                <label class="campo">
+                  <span>Nombre completo</span>
+                  <input type="text" name="nombre" autocomplete="name" maxlength="80" required>
+                </label>
+                <label class="campo">
+                  <span>Teléfono / WhatsApp</span>
+                  <input type="tel" name="telefono" autocomplete="tel" inputmode="numeric" maxlength="14" placeholder="33 1234 5678" required>
+                </label>
+                <label class="campo">
+                  <span>Correo</span>
+                  <input type="email" name="correo" autocomplete="email" maxlength="120" required>
+                </label>
+                <label class="campo">
+                  <span>Lugar del evento</span>
+                  <input type="text" name="lugar" maxlength="140" placeholder="Colonia o dirección" required>
+                </label>
+                <label class="campo campo--ancho">
+                  <span>Algo que debamos saber <small>(opcional)</small></span>
+                  <textarea name="notas" rows="3" maxlength="500" placeholder="Invitados vegetarianos, horario de montaje, acceso para el camión…"></textarea>
+                </label>
+                <label class="trampa" aria-hidden="true">Sitio web<input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <aside class="recibo" aria-live="polite">
+            <p class="recibo__marca">Trompo Rodante</p>
+            <p class="recibo__titulo">Cotización</p>
+            <p class="recibo__disponible" id="evDisponible">Elige una fecha para revisar disponibilidad.</p>
+            <dl class="recibo__lineas">
+              <div><dt id="evComidaTexto">Comida</dt><dd id="evComida">$0</dd></div>
+              <div><dt>Horas extra</dt><dd id="evExtra">$0</dd></div>
+              <div><dt>Traslado</dt><dd id="evTraslado">$0</dd></div>
+            </dl>
+            <p class="recibo__total"><span>Total</span><strong id="evTotal">$0</strong></p>
+            <p class="recibo__nota" id="evAnticipo"></p>
+            <p class="recibo__nota" id="evCalculo"></p>
+            <p class="form-error" id="evError" role="alert" hidden></p>
+            <button class="boton boton--chile boton--bloque" type="submit" id="evEnviar">Enviar solicitud</button>
+            <p class="recibo__nota">No cobramos nada todavía. Te confirmamos por WhatsApp en menos de 24 horas.</p>
+          </aside>
+        </form>
+
+        <div class="exito-evento" id="evExito" hidden tabindex="-1">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <div>
+            <h3>¡Solicitud recibida! Folio <span id="evFolio"></span></h3>
+            <p id="evExitoTexto"></p>
+          </div>
+          <button class="boton boton--linea boton--chico" type="button" id="evOtra">Cotizar otro evento</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion--resenas" id="resenas" aria-labelledby="resenasTitulo">
+      <div class="contenedor resenas__grid">
+        <div>
+          <h2 class="titulo titulo--crema" id="resenasTitulo">4.8 de 5 en la fila</h2>
+          <p class="resenas__nota">Más de 2,300 reseñas en Google y Facebook.</p>
+          <div class="resenas__control">
+            <button class="flecha flecha--crema" type="button" id="citaAnterior" aria-label="Reseña anterior">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+            </button>
+            <div class="puntos" id="citaPuntos"></div>
+            <button class="flecha flecha--crema" type="button" id="citaSiguiente" aria-label="Reseña siguiente">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+        <figure class="cita" id="cita" aria-live="polite">
+          <p class="estrellas" id="citaEstrellas" aria-label="5 de 5 estrellas">★★★★★</p>
+          <blockquote id="citaTexto">“Pedí desde la oficina, llegué a las 14:10 y mis tacos ya estaban envueltos. El pastor con piña es de los mejores de la ciudad.”</blockquote>
+          <figcaption id="citaAutor">Ximena R. · Puerta de Hierro</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="seccion seccion--turno" id="turno" aria-labelledby="turnoTitulo">
+      <div class="contenedor turno__grid">
+        <div class="pantalla" aria-live="polite">
+          <p class="pantalla__etiqueta">En ventanilla</p>
+          <p class="pantalla__numero" id="pantallaTurno">---</p>
+          <div class="pantalla__pie">
+            <span id="pantallaLugar">—</span>
+            <span id="pantallaEspera">—</span>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="titulo" id="turnoTitulo">¿Cómo va tu pedido?</h2>
+          <p class="turno__texto">Escribe el número de turno y el código de tu ticket. Se actualiza solo cada 15 segundos.</p>
+          <form class="turno__form" id="turnoForm" novalidate>
+            <label class="campo">
+              <span>Número de turno</span>
+              <input type="text" name="numero" inputmode="numeric" maxlength="3" placeholder="21" required>
+            </label>
+            <label class="campo">
+              <span>Código</span>
+              <input type="text" name="codigo" maxlength="4" autocapitalize="characters" placeholder="K7PM" required>
+            </label>
+            <button class="boton boton--verde" type="submit">Consultar</button>
+          </form>
+          <p class="form-error" id="turnoError" role="alert" hidden></p>
+
+          <article class="estado-turno" id="estadoTurno" aria-live="polite" hidden>
+            <header>
+              <p class="estado-turno__num">Turno <strong id="etNumero"></strong></p>
+              <p class="estado-turno__texto" id="etTexto"></p>
+            </header>
+            <ol class="progreso" id="etProgreso">
+              <li data-paso="recibido">Recibido</li>
+              <li data-paso="preparando">En la plancha</li>
+              <li data-paso="listo">Listo</li>
+              <li data-paso="entregado">Entregado</li>
+            </ol>
+            <p class="estado-turno__detalle" id="etDetalle"></p>
+            <ul class="estado-turno__items" id="etItems"></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <div class="pie__marca">
+        <p>Tacos al pastor, birria y asada sobre ruedas. Guadalajara y Zapopan, Jalisco.</p>
+        <ul class="redes" id="redes">
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" data-red="instagram"></a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" data-red="facebook"></a></li>
+          <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" data-red="tiktok"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Ubicación</h2>
+        <p><strong>Hoy:</strong> <span id="pieHoy">—</span></p>
+        <p><strong>Cocina y taller:</strong> Calle Morelos 1450, Col. Americana, Guadalajara, Jal.</p>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Horario</h2>
+        <ul class="pie__horario" id="pieHorario"></ul>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Contacto</h2>
+        <p><a href="https://wa.me/523312345678" target="_blank" rel="noopener">WhatsApp 33 1234 5678</a></p>
+        <p><a href="tel:+523312345678">Tel. 33 1234 5678</a></p>
+        <p><a href="mailto:hola@trompo-rodante.mx">hola@trompo-rodante.mx</a></p>
+      </div>
+    </div>
+    <p class="pie__rotulo" aria-hidden="true">Trompo Rodante</p>
+    <div class="contenedor pie__legal">
+      <p>© 2026 Trompo Rodante. Proyecto académico de Desarrollo Web I.</p>
+      <p>Fotografías: Unsplash · <a href="../admin/">Panel del equipo</a></p>
+    </div>
+  </footer>
+
+  <a class="barra-pedido" id="barraPedido" href="#" hidden>
+    <span id="barraCantidad">0 productos</span>
+    <strong id="barraTotal">$0</strong>
+  </a>
+
+  <dialog class="bolsa" id="bolsa" aria-labelledby="bolsaTitulo">
+    <div class="bolsa__cab">
+      <h2 id="bolsaTitulo">Tu pedido</h2>
+      <button class="cerrar" type="button" data-cerrar aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="bolsa__cuerpo" id="pasoBolsa">
+      <p class="bolsa__parada" id="bolsaParada"></p>
+      <ul class="lineas" id="lineas"></ul>
+      <div class="bolsa__vacia" id="bolsaVacia">
+        <p>Tu pedido está vacío.</p>
+        <button class="boton boton--linea boton--chico" type="button" data-cerrar>Ver el menú</button>
+      </div>
+
+      <form class="checkout" id="checkout" novalidate hidden>
+        <fieldset class="grupo">
+          <legend>¿A qué hora pasas?</legend>
+          <div class="franjas" id="franjas" role="radiogroup" aria-label="Hora de recogida"></div>
+          <p class="campo__error" id="errRecoger" hidden></p>
+        </fieldset>
+        <div class="campos campos--uno">
+          <label class="campo">
+            <span>Nombre para llamarte</span>
+            <input type="text" name="nombre" autocomplete="given-name" maxlength="60" required>
+            <small class="campo__error" id="errNombre" hidden></small>
+          </label>
+          <label class="campo">
+            <span>Teléfono</span>
+            <input type="tel" name="telefono" autocomplete="tel" inputmode="numeric" maxlength="14" placeholder="33 1234 5678" required>
+            <small class="campo__error" id="errTelefono" hidden></small>
+          </label>
+          <label class="campo">
+            <span>Nota para el taquero <small>(opcional)</small></span>
+            <input type="text" name="nota" maxlength="160" placeholder="Sin cebolla, salsa aparte…">
+          </label>
+          <label class="trampa" aria-hidden="true">Sitio web<input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label>
+        </div>
+      </form>
+    </div>
+
+    <div class="bolsa__pie" id="bolsaPie" hidden>
+      <dl class="totales">
+        <div><dt>Subtotal</dt><dd id="subtotal">$0</dd></div>
+        <div class="totales__ahorro" id="filaAhorro" hidden><dt>Promo del día</dt><dd id="ahorro">$0</dd></div>
+        <div class="totales__total"><dt>Total</dt><dd id="total">$0</dd></div>
+      </dl>
+      <p class="form-error" id="pedidoError" role="alert" hidden></p>
+      <p class="bolsa__cerrado" id="bolsaCerrado" hidden></p>
+      <button class="boton boton--chile boton--bloque" type="submit" form="checkout" id="confirmar">Confirmar pedido</button>
+      <p class="bolsa__nota">Pagas al recoger, en efectivo o con tarjeta.</p>
+    </div>
+
+    <div class="bolsa__listo" id="pasoListo" hidden>
+      <div class="ticket ticket--grande">
+        <p class="ticket__marca">Trompo Rodante</p>
+        <p class="ticket__etiqueta">Tu turno</p>
+        <p class="ticket__numero" id="tkNumero">000</p>
+        <p class="ticket__linea"><span>Código</span><span id="tkCodigo"></span></p>
+        <p class="ticket__linea"><span>Recoger</span><span id="tkHora"></span></p>
+        <p class="ticket__linea"><span>Dónde</span><span id="tkParada"></span></p>
+        <p class="ticket__linea"><span>Total a pagar</span><span id="tkTotal"></span></p>
+      </div>
+      <p class="bolsa__listo-texto" id="tkTexto"></p>
+      <a class="boton boton--verde boton--bloque" href="#turno" id="tkSeguir">Seguir mi turno</a>
+    </div>
+  </dialog>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+</body>
+</html>
